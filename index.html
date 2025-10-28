@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XVI</title>
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+    <!-- Pantalla de bienvenida -->
+    <div id="welcome-screen" class="text-center">
+        <button class="btn btn-custom btn-lg mt-4" onclick="openInvitation()">Abrir Invitación</button>
+    </div>
+
+    <!-- Contenedor de estrellas -->
+    <div class="estrellas-fondo"></div>
+
+    <!-- Contenido principal -->
+    <div id="main-content" style="display:none; opacity:0;">
+
+        <!-- 1. Foto de la cumpleañera e información -->
+        <section class="block-container">
+            <h1>Mis XVI</h1>
+            <img src="img/0-0.jpg" alt="Cumpleañera" class="foto-cumpleanera">
+            <h1>Fernanda Herrera</h1>
+            <h3>29 de noviembre 2025</h3>
+        </section>
+
+        <!-- 2. Información general -->
+        <section class="block-container">
+            Por orden de la Reina de Corazones,
+            se me ha convocado al País de las Maravillas,
+            un lugar donde los sueños se transforman en magia
+            y el tiempo se detiene para celebrar mis XVI años.
+            <br>
+            Hay momentos inolvidables que se atesoran en el corazón para siempre, por esa razón, quiero que compartas
+            conmigo este día tan especial.
+        </section>
+
+        <!-- 3. Galería de imágenes -->
+        <section class="block-container" id="galeria">
+            <h2>MI VIDA EN FOTOS</h2>
+            <div class="imagenes-galeria">
+                <img src="img/1.jpg" alt="Foto 1" class="foto-galeria">
+                <img src="img/2.jpg" alt="Foto 2" class="foto-galeria">
+                <img src="img/3.jpg" alt="Foto 3" class="foto-galeria">
+                <img src="img/4.jpg" alt="Foto 4" class="foto-galeria">
+            </div>
+        </section>
+
+        <!-- 4. Texto superior y una imagen debajo -->
+        <section class="block-container">
+            Con la bendición de Dios, mi Madre y mi Padrino
+            <br>
+            Elizabeth Herrera Ortiz
+            <br>
+            Anselmo Herrera Ortiz
+            <br>
+            <img src="img/5.jpg" alt="Decoración">
+        </section>
+
+        <!-- 5. Texto superior y ubicación (Google Maps) -->
+        <section class="block-container">
+            <h2>Ubicación</h2>
+            Recuerda que es el sábado 29 de noviembre del 2025
+            <br>
+            La ceremonia religiosa será en la Parroquia de la Natividad de María, Diócesis de Ecatepec.
+            <br>
+            A las 16:30
+            <div class="mapa" id="mapa1"><iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3757.9413553816235!2d-98.9979211!3d19.6298048!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1ede210531c87%3A0xdf7191955f3a3f55!2sParroquia%20de%20la%20Natividad%20de%20Mar%C3%ADa%2C%20Di%C3%B3cesis%20de%20Ecatepec%2C%20A.%20R.!5e0!3m2!1ses!2smx!4v1761619507334!5m2!1ses!2smx"
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+        </section>
+
+        <!-- 6. Texto superior y segunda ubicación (Google Maps) -->
+        <section class="block-container">
+            <h2>Ubicación</h2>
+            Después de la ceremonia religiosa, te esperamos en el Salón Ejidal de Santa María Chiconautla
+            <div class="mapa" id="mapa2"><iframe
+                    src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3757.9428244879136!2d-98.998975!3d19.629742!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTnCsDM3JzQ3LjEiTiA5OMKwNTknNTYuMyJX!5e0!3m2!1ses!2smx!4v1761619389053!5m2!1ses!2smx"
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+        </section>
+
+        <!-- 7. Cuenta regresiva y botón de confirmación -->
+        <section class="block-container">
+            <h2>¡No faltes!</h2>
+            <p id="countdown">00:00:00</p>
+            <button class="btn btn-custom" onclick="window.open('https://forms.gle/YYfDGGaLENGBW7G46')">Confirmar
+                asistencia</button>
+        </section>
+
+    </div>
+
+    <script src="script.js"></script>
+    <audio id="audio-fondo" src="/msc/song.mp3" preload="auto"></audio>
+
+</body>
+
+</html>

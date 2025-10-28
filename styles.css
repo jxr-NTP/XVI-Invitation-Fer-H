@@ -1,0 +1,327 @@
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+English&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* Pantalla de bienvenida */
+
+#welcome-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url('data:image/svg+xml;utf8,\
+<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80">\
+  <defs>\
+    <pattern id="rombos" width="80" height="80" patternUnits="userSpaceOnUse">\
+      <polygon points="40,0 80,40 40,80 0,40" fill="%236b1414" />\
+      <polygon points="0,40 40,80 0,120 -40,80" fill="%23000000" />\
+    </pattern>\
+  </defs>\
+  <rect width="100%" height="100%" fill="url(%23rombos)" />\
+</svg>');
+    background-repeat: repeat;
+    background-size: 40px 60px;
+    background-attachment: fixed;
+    z-index: 10;
+    /* Asegura que esté sobre todo */
+    color: #fdd835;
+    /* Texto dorado */
+    transition: opacity 1s ease, visibility 1s ease;
+}
+
+#welcome-screen.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.main-content {
+    display: none;
+}
+
+/* Botón */
+.btn-custom {
+    background: #FBEEEB;
+    border: 4px solid #000000; /* Borde */
+    border-radius: 12px;
+    color: #6B1414; /* Texto */
+    font-family: "IM Fell English", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 30px;
+    padding: 10px 100px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.btn-custom:hover {
+    background: #FBEEEB;
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* --- Borde superior e inferior por defecto --- */
+
+body::before,
+body::after {
+    content: "";
+    position: fixed;
+    left: 0;
+    width: 100%;
+    height: 120px;
+    background: url("img/borde-h.svg") repeat-x center;
+    background-size: auto 100%; /* Se repite y llena horizontalmente */
+    z-index: 20;
+    pointer-events: none;
+    transition: all 1s ease;
+}
+
+/* Borde superior */
+body::before {
+    top: 0;
+}
+
+/* Borde inferior espejado 180° */
+body::after {
+    bottom: 0;
+    transform: rotate(180deg);
+}
+
+/* Termina pantalla de bienvenida */
+
+/* Fondo de la página */
+
+/* --- Bordes laterales --- */
+body.side-borders::before,
+body.side-borders::after {
+    width: 130px;
+    height: 210%;
+    top: 0;
+    background-image: url("img/borde-v.svg");
+    background-size: 100% auto;
+    background-repeat: repeat-y;
+    background-position: center;
+    pointer-events: none;
+    transition: all 1s ease;
+}
+
+@media (max-width: 500px) {
+    body.side-borders::before,
+    body.side-borders::after {
+        width: 60px;    /* más estrecho */
+        height: 210%;   /* un poco menos alto */
+    }
+}
+
+/* Lado izquierdo */
+body.side-borders::before {
+    left: 0;  
+}
+
+/* Lado derecho */
+body.side-borders::after {
+    right: 0;
+    left: auto;          
+}
+
+body {
+    font-family: "IM Fell English", serif;
+    font-weight: 400;
+    font-style: normal;
+    margin: 0;
+    min-height: 100vh;
+    background-color: #000000;
+    background-image: url('data:image/svg+xml;utf8,\
+<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80">\
+  <defs>\
+    <pattern id="rombos" width="80" height="80" patternUnits="userSpaceOnUse">\
+      <polygon points="40,0 80,40 40,80 0,40" fill="%236b1414" />\
+      <polygon points="0,40 40,80 0,120 -40,80" fill="%23000000" />\
+    </pattern>\
+  </defs>\
+  <rect width="100%" height="100%" fill="url(%23rombos)" />\
+</svg>');
+    background-repeat: repeat;
+    background-size: 40px 60px;
+    background-attachment: fixed;
+}
+
+.block-container {
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #FBEEEB; /* mismo que tu botón */
+    border: 4px solid #000000; /* mismo tono de borde */
+    border-radius: 12px;
+    color: #6B1414; /* mismo color de texto */
+    font-family: "IM Fell English", serif;
+    font-weight: 400;
+    font-style: normal;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.block-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+@media (max-width: 500px) {
+    .block-container {
+        max-width: 90%;        /* Ajusta al ancho de la pantalla */
+        margin: 20px auto;     /* Menos margen vertical */
+        padding: 20px;         /* Padding reducido */
+    }
+
+    .btn-custom {
+        font-size: 20px;       /* Botón más pequeño */
+        padding: 8px 40px;     /* Padding reducido */
+    }
+
+    .block-container img {
+        max-width: 100%;       /* Siempre dentro del contenedor */
+        height: auto;
+    }
+}
+
+/* ==== GALERÍA EN FILA INCLINADA RESPONSIVA ==== */
+
+.imagenes-galeria {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: nowrap;        /* todas en fila */
+    overflow: hidden;         /* elimina cualquier scroll */
+    width: 100%;
+    padding: 10px 0;
+}
+
+/* Base imágenes */
+.imagenes-galeria img {
+    width: calc((100% - 36px) / 4);  /* 4 imágenes con gap de 12px cada una */
+    aspect-ratio: 3/4;               /* mantiene proporción */
+    object-fit: cover;
+
+    border-radius: 10px;
+    border: 4px solid #000000;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+
+    /* Animación base */
+    opacity: 0;
+    transform: scale(0.8) rotate(var(--rot));
+    transition: all 0.8s ease;
+}
+
+@media (max-width: 600px) {
+    .imagenes-galeria {
+        flex-wrap: wrap;      /* saltan a la siguiente fila si no caben */
+        overflow-x: hidden;   /* elimina scroll horizontal */
+    }
+
+    .imagenes-galeria img {
+        width: 45%;           /* dos imágenes por fila */
+        min-width: 100px;
+        max-width: 100%;      /* asegura que no se salga */
+    }
+}
+
+
+/* === ROTACIONES === */
+.imagenes-galeria img:nth-child(1) { --rot: -12deg; }
+.imagenes-galeria img:nth-child(2) { --rot: 6deg; }
+.imagenes-galeria img:nth-child(3) { --rot: -6deg; }
+.imagenes-galeria img:nth-child(4) { --rot: 12deg; }
+
+/* === ANIMACIÓN === */
+
+.imagenes-galeria.animar img {
+    animation: aparecerImg 1s ease forwards;
+}
+
+@keyframes aparecerImg {
+    0%   { opacity: 0; transform: scale(0.8) rotate(var(--rot)); }
+    100% { opacity: 1; transform: scale(1)   rotate(var(--rot)); }
+}
+
+/* Secuencia */
+.imagenes-galeria.animar img:nth-child(1) { animation-delay: 0.3s; }
+.imagenes-galeria.animar img:nth-child(2) { animation-delay: 0.7s; }
+.imagenes-galeria.animar img:nth-child(3) { animation-delay: 1.1s; }
+.imagenes-galeria.animar img:nth-child(4) { animation-delay: 1.5s; }
+
+.mapa {
+    width: 100%;
+    height: 300px;
+    margin-top: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.mapa iframe {
+    width: 100% !important;
+    height: 250px; /* Ajusta si quieres más alto */
+}
+
+#countdown {
+    font-size: 2.2rem;   /* Cambia a tu gusto */
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+@media (max-width: 500px) {
+    #countdown {
+        font-size: 1.8rem;
+    }
+}
+
+/* ==== EFECTO DE APARICIÓN / DESAPARICIÓN AL HACER SCROLL ==== */
+.block-container {
+    opacity: 0;
+    transform: translateY(60px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+/* Cuando el contenedor es visible */
+.block-container.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Contenedor de estrellas */
+.estrellas-fondo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* No interfiere con clics */
+    z-index: 0; /* Debajo de todo */
+    overflow: hidden;
+}
+
+/* Cada estrella (polygon en SVG) */
+.estrellas-fondo svg {
+    position: absolute;
+    width: 15px;  /* tamaño base, varía con CSS */
+    height: 15px;
+    fill: #FBEEEB; /* color dorado */
+    opacity: 0.8;
+    animation: subir 10s linear infinite;
+}
+
+/* Animación de subir */
+@keyframes subir {
+    0% { transform: translateY(110vh) scale(0.6) rotate(0deg); opacity: 0; }
+    50% { opacity: 1; }
+    100% { transform: translateY(-10vh) scale(1) rotate(360deg); opacity: 0; }
+}
